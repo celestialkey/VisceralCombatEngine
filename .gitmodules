@@ -1,0 +1,3 @@
+[submodule "VisceralCombatEngine/vendor/spdlog"]
+	path = VisceralCombatEngine/vendor/spdlog
+	url = https://github.com/celestialkey/spdlog.git
