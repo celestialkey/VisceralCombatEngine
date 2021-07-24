@@ -1,4 +1,4 @@
-workspace "VCE"
+workspace "VisceralCombatEngine"
 	architecture "x64"
 
 	configurations
@@ -10,13 +10,16 @@ workspace "VCE"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "VCE"
-	location "VCE"
+project "VisceralCombatEngine"
+	location "VisceralCombatEngine"
 	kind "SharedLib"
 	language "C++"
 
 	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
+
+	pchheader "vcepch.h"
+	pchsource "VisceralCombatEngine/src/vcepch.cpp"
 
 	files
 	{
@@ -74,13 +77,13 @@ project "Playground"
 
 	includedirs
 	{
-		"VCE/vendor/spdlog/include",
-		"VCE/src"
+		"VisceralCombatEngine/vendor/spdlog/include",
+		"VisceralCombatEngine/src"
 	}
 
 	links
 	{
-		"VCE"
+		"VisceralCombatEngine"
 	}
 
 	filter "system:windows"

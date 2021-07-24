@@ -34,6 +34,7 @@
     <ClInclude Include="src\VCE\Log.h">
       <Filter>VCE</Filter>
     </ClInclude>
+    <ClInclude Include="src\vcepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\VCE\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\VCE\Log.cpp">
       <Filter>VCE</Filter>
     </ClCompile>
+    <ClCompile Include="src\vcepch.cpp" />
   </ItemGroup>
 </Project>

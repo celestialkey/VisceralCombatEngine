@@ -1,3 +1,4 @@
+#include "vcepch.h"
 #include "Application.h"
 
 #include "VCE/Events/ApplicationEvent.h"
