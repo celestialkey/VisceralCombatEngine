@@ -1,7 +1,9 @@
 #include "Log.h"
 
+#include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/sinks/basic_file_sink.h"
 
-namespace VisceralCombatEngine {
+namespace VCE {
 
 	std::shared_ptr<spdlog::logger> Log::m_ApplicationLogger;
 	std::shared_ptr<spdlog::logger> Log::m_CoreLogger;

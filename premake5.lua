@@ -1,4 +1,4 @@
-workspace "VisceralCombatEngine"
+workspace "VCE"
 	architecture "x64"
 
 	configurations
@@ -10,8 +10,8 @@ workspace "VisceralCombatEngine"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "VisceralCombatEngine"
-	location "VisceralCombatEngine"
+project "VCE"
+	location "VCE"
 	kind "SharedLib"
 	language "C++"
 
@@ -74,13 +74,13 @@ project "Playground"
 
 	includedirs
 	{
-		"VisceralCombatEngine/vendor/spdlog/include",
-		"VisceralCombatEngine/src"
+		"VCE/vendor/spdlog/include",
+		"VCE/src"
 	}
 
 	links
 	{
-		"VisceralCombatEngine"
+		"VCE"
 	}
 
 	filter "system:windows"

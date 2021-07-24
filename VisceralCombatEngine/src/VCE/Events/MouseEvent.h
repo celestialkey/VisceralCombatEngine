@@ -4,7 +4,7 @@
 
 #include <sstream>
 
-namespace VisceralCombatEngine {
+namespace VCE {
 
 	class VCE_API MouseMovedEvent : public Event
 	{

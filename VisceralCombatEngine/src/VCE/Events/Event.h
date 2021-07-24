@@ -5,7 +5,7 @@
 #include <string>
 #include <functional>
 
-namespace VisceralCombatEngine {
+namespace VCE {
 	/*
 	*	A list of events that the engine is capable of processing.
 	* 
@@ -45,13 +45,13 @@ namespace VisceralCombatEngine {
 
 	// Cheat macro to make life easy when creating classes
 #define EVENT_CLASS_TYPE(type) \
-	static EventType GetStaticType() { return EventType::##type; }\
+	static EventType GetStaticType() { return EventType::type; }\
 	virtual EventType GetEventType() const override { return GetStaticType(); }\
 	virtual const char* GetName() const override { return #type; };
 
 	// Cheat macro to make life easy when creating classes
 #define EVENT_CLASS_CATEGORY(category) \
-	virtual int GetCategoryFlags() const override { return ##category; }
+	virtual int GetCategoryFlags() const override { return category; }
 
 	class VCE_API Event
 	{
@@ -90,5 +90,9 @@ namespace VisceralCombatEngine {
 		Event& m_Event;
 
 	};
+
+	inline std::ostream& operator<<(std::ostream& os, const Event& e) {
+		return os << e.ToString();
+	}
 
 }

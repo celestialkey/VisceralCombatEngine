@@ -1,10 +1,13 @@
 #pragma once
 
 #include "Core.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
 
-namespace VisceralCombatEngine {
+#pragma warning(push, 0)
+#include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
+#pragma warning(pop)
+
+namespace VCE {
 	class VCE_API Log
 	{
 	public:
@@ -20,19 +23,17 @@ namespace VisceralCombatEngine {
 }
 
 
-// Used by the VisceralCombatEngine
-#define VCE_CORE_TRACE(...)    ::VisceralCombatEngine::Log::GetCoreLogger()->trace(__VA_ARGS__);
-#define VCE_CORE_DEBUG(...)    ::VisceralCombatEngine::Log::GetCoreLogger()->debug(__VA_ARGS__);
-#define VCE_CORE_INFO(...)     ::VisceralCombatEngine::Log::GetCoreLogger()->info(__VA_ARGS__);
-#define VCE_CORE_WARN(...)     ::VisceralCombatEngine::Log::GetCoreLogger()->warn(__VA_ARGS__);
-#define VCE_CORE_ERROR(...)    ::VisceralCombatEngine::Log::GetCoreLogger()->error(__VA_ARGS__);
-#define VCE_CORE_CRITICAL(...) ::VisceralCombatEngine::Log::GetCoreLogger()->critical(__VA_ARGS__);
+// Used by the VCE
+#define VCE_CORE_TRACE(...)    ::VCE::Log::GetCoreLogger()->trace(__VA_ARGS__);
+#define VCE_CORE_INFO(...)     ::VCE::Log::GetCoreLogger()->info(__VA_ARGS__);
+#define VCE_CORE_WARN(...)     ::VCE::Log::GetCoreLogger()->warn(__VA_ARGS__);
+#define VCE_CORE_ERROR(...)    ::VCE::Log::GetCoreLogger()->error(__VA_ARGS__);
+#define VCE_CORE_CRITICAL(...) ::VCE::Log::GetCoreLogger()->critical(__VA_ARGS__);
 
 
 // USed by client
-#define VCE_TRACE(...)    ::VisceralCombatEngine::Log::GetAppLogger()->trace(__VA_ARGS__);
-#define VCE_DEBUG(...)    ::VisceralCombatEngine::Log::GetAppLogger()->debug(__VA_ARGS__);
-#define VCE_INFO(...)     ::VisceralCombatEngine::Log::GetAppLogger()->info(__VA_ARGS__);
-#define VCE_WARN(...)     ::VisceralCombatEngine::Log::GetAppLogger()->warn(__VA_ARGS__);
-#define VCE_ERROR(...)    ::VisceralCombatEngine::Log::GetAppLogger()->error(__VA_ARGS__);
-#define VCE_CRITICAL(...) ::VisceralCombatEngine::Log::GetAppLogger()->critical(__VA_ARGS__);
+#define VCE_TRACE(...)         ::VCE::Log::GetAppLogger()->trace(__VA_ARGS__);
+#define VCE_INFO(...)          ::VCE::Log::GetAppLogger()->info(__VA_ARGS__);
+#define VCE_WARN(...)          ::VCE::Log::GetAppLogger()->warn(__VA_ARGS__);
+#define VCE_ERROR(...)         ::VCE::Log::GetAppLogger()->error(__VA_ARGS__);
+#define VCE_CRITICAL(...)      ::VCE::Log::GetAppLogger()->critical(__VA_ARGS__);
