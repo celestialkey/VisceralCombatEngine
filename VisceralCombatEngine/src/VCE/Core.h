@@ -10,4 +10,12 @@
 #	error VCE only supports Windows!
 #endif
 
+#ifdef VCE_ENABLE_ASSERTS
+#	define VCE_ASSERT(x, ...) {if(!(x)){ VCE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak();}}
+#	define VCE_CORE_ASSERT(x, ...) {if(!(x)){ VCE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak();}}
+#else
+#	define VCE_ASSERT(x, ...)
+#	define VCE_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)

@@ -10,6 +10,12 @@ workspace "VisceralCombatEngine"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include 3rd party libraries into the project
+IncludeDir = {}
+IncludeDir["GLFW"] = "%{prj.name}/vendor/GLFW/include"
+
+include "VisceralCombatEngine/vendor/GLFW"
+
 project "VisceralCombatEngine"
 	location "VisceralCombatEngine"
 	kind "SharedLib"
@@ -30,7 +36,14 @@ project "VisceralCombatEngine"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -50,7 +63,11 @@ project "VisceralCombatEngine"
 		}
 
 	filter "configurations:Debug"
-		defines "VCE_DEBUG"
+		defines 
+		{
+			"VCE_DEBUG",
+			"VCE_ENABLE_ASSERTS"
+		}
 		symbols "On"
 
 	filter "configurations:Release"
@@ -97,7 +114,11 @@ project "Playground"
 		}
 
 	filter "configurations:Debug"
-		defines "VCE_DEBUG"
+		defines 
+		{
+			"VCE_DEBUG",
+			"VCE_ENABLE_ASSERTS"
+		}
 		symbols "On"
 
 	filter "configurations:Release"
