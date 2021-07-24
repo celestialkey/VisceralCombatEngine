@@ -6,7 +6,7 @@
 
 namespace VCE {
 
-	class VCE_API KeyEvent : Event
+	class VCE_API KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -41,7 +41,7 @@ namespace VCE {
 	class VCE_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keyCode, int repeatCount)
+		KeyReleasedEvent(int keyCode)
 			: KeyEvent(keyCode) {}
 
 		std::string ToString() const override {

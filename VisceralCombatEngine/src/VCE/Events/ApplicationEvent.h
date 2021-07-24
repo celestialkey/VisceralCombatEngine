@@ -2,7 +2,7 @@
 
 #include "Event.h"
 
-
+#include <sstream>
 namespace VCE {
 
 	class VCE_API WindowResizeEvent : public Event
@@ -10,6 +10,7 @@ namespace VCE {
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
 			: m_Width(width), m_Height(height) {}
+
 
 		std::string ToString() const override {
 			std::stringstream ss;

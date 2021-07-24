@@ -2,6 +2,8 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "VCE/Events/ApplicationEvent.h"
+
 #include "Window.h"
 
 namespace VCE {
@@ -12,6 +14,11 @@ namespace VCE {
 		virtual ~Application();
 		
 		void Run();
+
+		void OnEvent(Event& e);
+
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
 
 	private:
 		std::shared_ptr<Window> m_Window;
