@@ -58,7 +58,8 @@ project "VisceralCombatEngine"
 		defines
 		{
 			"VCE_PLATFORM_WINDOWS", 
-			"VCE_BUILD_DLL"
+			"VCE_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

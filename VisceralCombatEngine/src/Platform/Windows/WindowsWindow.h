@@ -1,8 +1,8 @@
 #pragma once
 
 #include "VCE/Window.h"
-#include <GLFW/glfw3.h>
 
+struct GLFWwindow;
 
 namespace VCE {
 	class WindowsWindow : public Window
