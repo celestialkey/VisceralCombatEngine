@@ -24,12 +24,19 @@ namespace VCE {
 
 
 // Used by the VCE
+#if defined(VCE_DEBUG) || defined(VCE_PROFILE)
 #define VCE_CORE_TRACE(...)    ::VCE::Log::GetCoreLogger()->trace(__VA_ARGS__);
 #define VCE_CORE_INFO(...)     ::VCE::Log::GetCoreLogger()->info(__VA_ARGS__);
 #define VCE_CORE_WARN(...)     ::VCE::Log::GetCoreLogger()->warn(__VA_ARGS__);
 #define VCE_CORE_ERROR(...)    ::VCE::Log::GetCoreLogger()->error(__VA_ARGS__);
 #define VCE_CORE_CRITICAL(...) ::VCE::Log::GetCoreLogger()->critical(__VA_ARGS__);
-
+#else
+#define VCE_CORE_TRACE(...)
+#define VCE_CORE_INFO(...)
+#define VCE_CORE_WARN(...)
+#define VCE_CORE_ERROR(...)
+#define VCE_CORE_CRITICAL(...)
+#endif
 
 // USed by client
 #define VCE_TRACE(...)         ::VCE::Log::GetAppLogger()->trace(__VA_ARGS__);

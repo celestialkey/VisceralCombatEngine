@@ -40,6 +40,12 @@
     <ClInclude Include="src\VCE\Events\MouseEvent.h">
       <Filter>VCE\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\VCE\Layer.h">
+      <Filter>VCE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VCE\LayerStack.h">
+      <Filter>VCE</Filter>
+    </ClInclude>
     <ClInclude Include="src\VCE\Log.h">
       <Filter>VCE</Filter>
     </ClInclude>
@@ -53,6 +59,12 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\VCE\Application.cpp">
+      <Filter>VCE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VCE\Layer.cpp">
+      <Filter>VCE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VCE\LayerStack.cpp">
       <Filter>VCE</Filter>
     </ClCompile>
     <ClCompile Include="src\VCE\Log.cpp">

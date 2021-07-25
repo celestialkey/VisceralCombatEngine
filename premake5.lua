@@ -13,8 +13,10 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include 3rd party libraries into the project
 IncludeDir = {}
 IncludeDir["GLFW"] = "%{prj.name}/vendor/GLFW/include"
+IncludeDir["GLad"] = "%{prj.name}/vendor/GLad/include"
 
 include "VisceralCombatEngine/vendor/GLFW"
+include "VisceralCombatEngine/vendor/GLad"
 
 project "VisceralCombatEngine"
 	location "VisceralCombatEngine"
@@ -37,12 +39,14 @@ project "VisceralCombatEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"GLad",
 		"opengl32.lib"
 	}
 
@@ -68,14 +72,17 @@ project "VisceralCombatEngine"
 			"VCE_DEBUG",
 			"VCE_ENABLE_ASSERTS"
 		}
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "VCE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "VCE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Playground"
@@ -119,12 +126,15 @@ project "Playground"
 			"VCE_DEBUG",
 			"VCE_ENABLE_ASSERTS"
 		}
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "VCE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "VCE_DIST"
+		buildoptions "/MD"
 		optimize "On"

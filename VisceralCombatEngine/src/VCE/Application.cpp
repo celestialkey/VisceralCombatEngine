@@ -25,12 +25,28 @@ namespace VCE {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 		VCE_CORE_INFO("{0}", e);
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
+			(*--it)->OnEvent(e);
+			if (e.Handled) {
+				break;
+			}
+		}
 	}
-
+	void Application::PushLayer(Layer* pLayer) {
+		m_LayerStack.PushLayer(pLayer);
+	}
+	void Application::PushOverlay(Layer* pLayer) {
+		m_LayerStack.PushOverlay(pLayer);
+	}
+	
 	void Application::Run() {
 		while (m_Running) {
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* pLayer : m_LayerStack)
+				pLayer->OnUpdate();
+
 			m_Window->OnUpdate();
 		}
 	}
