@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -12,6 +15,9 @@
     </Filter>
     <Filter Include="VCE\Events">
       <UniqueIdentifier>{27400087-13F8-41D4-7CFF-1A3068D6DCC4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VCE\ImGui">
+      <UniqueIdentifier>{0D0DA01B-7977-5492-C2B5-05382E5F32E7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +46,9 @@
     <ClInclude Include="src\VCE\Events\MouseEvent.h">
       <Filter>VCE\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\VCE\ImGui\ImGuiLayer.h">
+      <Filter>VCE\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\VCE\Layer.h">
       <Filter>VCE</Filter>
     </ClInclude>
@@ -53,6 +62,7 @@
       <Filter>VCE</Filter>
     </ClInclude>
     <ClInclude Include="src\vcepch.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -60,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="src\VCE\Application.cpp">
       <Filter>VCE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VCE\ImGui\ImGuiLayer.cpp">
+      <Filter>VCE\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\VCE\Layer.cpp">
       <Filter>VCE</Filter>
@@ -71,5 +84,7 @@
       <Filter>VCE</Filter>
     </ClCompile>
     <ClCompile Include="src\vcepch.cpp" />
+    <ClCompile Include="src\VCE\ImGui\ImGuiBuildcpp.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>

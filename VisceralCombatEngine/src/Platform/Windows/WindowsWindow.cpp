@@ -34,7 +34,7 @@ namespace VCE {
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
-		
+
 		VCE_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized) {
@@ -47,11 +47,11 @@ namespace VCE {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
-		
+
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		VCE_CORE_ASSERT(status, "Failed to initialized GLad!")
 
-		glfwSetWindowUserPointer(m_Window, &m_Data);
+			glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
 		// Setuip GLFW callbacks
@@ -62,36 +62,41 @@ namespace VCE {
 
 			WindowResizeEvent e(w, h);
 			data.EventCallback(e);
-		});
+			});
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			
+
 			WindowCloseEvent e;
 			data.EventCallback(e);
-		});
+			});
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			
+
 			switch (action) {
-				case GLFW_PRESS:
-				{
-					KeyPressedEvent e(key, 0);
-					data.EventCallback(e);
-					break;
-				}
-				case GLFW_RELEASE:
-				{
-					KeyReleasedEvent e(key);
-					data.EventCallback(e);
-					break;
-				}
-				case GLFW_REPEAT:
-				{
-					KeyPressedEvent e(key, 1);
-					data.EventCallback(e);
-					break;
-				}
+			case GLFW_PRESS:
+			{
+				KeyPressedEvent e(key, 0);
+				data.EventCallback(e);
+				break;
 			}
+			case GLFW_RELEASE:
+			{
+				KeyReleasedEvent e(key);
+				data.EventCallback(e);
+				break;
+			}
+			case GLFW_REPEAT:
+			{
+				KeyPressedEvent e(key, 1);
+				data.EventCallback(e);
+				break;
+			}
+			}
+			});
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int character) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent e(character);
+			data.EventCallback(e);
 		});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {

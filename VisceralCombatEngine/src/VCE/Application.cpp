@@ -7,10 +7,14 @@
 #include <glad/glad.h>
 
 namespace VCE {
+	Application* Application::s_Instance = nullptr;
+
 	#define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
 	Application::Application()
 		: m_Running(true)
 	{
+		VCE_CORE_ASSERT(!s_Instance, "Unable to create more than one application instance!")
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
@@ -35,9 +39,11 @@ namespace VCE {
 	}
 	void Application::PushLayer(Layer* pLayer) {
 		m_LayerStack.PushLayer(pLayer);
+		pLayer->OnAttach();
 	}
 	void Application::PushOverlay(Layer* pLayer) {
 		m_LayerStack.PushOverlay(pLayer);
+		pLayer->OnAttach();
 	}
 	
 	void Application::Run() {

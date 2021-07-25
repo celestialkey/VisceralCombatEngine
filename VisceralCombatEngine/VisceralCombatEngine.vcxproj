@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>vcepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VCE_PLATFORM_WINDOWS;VCE_BUILD_DLL;GLFW_INCLUDE_NONE;VCE_DEBUG;VCE_ENABLE_ASSERTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>vcepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VCE_PLATFORM_WINDOWS;VCE_BUILD_DLL;GLFW_INCLUDE_NONE;VCE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>vcepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VCE_PLATFORM_WINDOWS;VCE_BUILD_DLL;GLFW_INCLUDE_NONE;VCE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\VCE.h" />
     <ClInclude Include="src\VCE\Application.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="src\VCE\Events\Event.h" />
     <ClInclude Include="src\VCE\Events\KeyEvent.h" />
     <ClInclude Include="src\VCE\Events\MouseEvent.h" />
+    <ClInclude Include="src\VCE\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\VCE\Layer.h" />
     <ClInclude Include="src\VCE\LayerStack.h" />
     <ClInclude Include="src\VCE\Log.h" />
@@ -168,8 +170,11 @@
     <ClInclude Include="src\vcepch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\VCE\Application.cpp" />
+    <ClCompile Include="src\VCE\ImGui\ImGuiBuildcpp.cpp" />
+    <ClCompile Include="src\VCE\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\VCE\Layer.cpp" />
     <ClCompile Include="src\VCE\LayerStack.cpp" />
     <ClCompile Include="src\VCE\Log.cpp" />
@@ -183,6 +188,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\GLad\GLad.vcxproj">
       <Project>{9D4E857C-8985-860D-3272-6C101E88020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

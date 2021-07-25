@@ -23,6 +23,7 @@ namespace VCE {
 
 		KeyPressed, 
 		KeyReleased,
+		KeyTyped,
 
 		MouseButtonPressed,
 		MouseButtonReleased, 

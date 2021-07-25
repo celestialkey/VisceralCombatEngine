@@ -6,6 +6,8 @@
 #include "VCE/Layer.h"
 #include "VCE/Application.h"
 
+#include "VCE/ImGui/ImGuiLayer.h"
+
 
 // EntryPoint -------------------------------
 #include "VCE/EntryPoint.h"
