@@ -18,7 +18,7 @@ public:
 	}
 
 	void OnEvent(VCE::Event& e) override {
-		VCE_TRACE("ExampleLayer::OnEvent -> {0}", e);
+		//VCE_TRACE("ExampleLayer::OnEvent -> {0}", e);
 	}
 };
 class TestBed : public VCE::Application

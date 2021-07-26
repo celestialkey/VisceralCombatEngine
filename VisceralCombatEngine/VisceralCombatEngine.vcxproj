@@ -165,9 +165,11 @@
     <ClInclude Include="src\VCE\Events\KeyEvent.h" />
     <ClInclude Include="src\VCE\Events\MouseEvent.h" />
     <ClInclude Include="src\VCE\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\VCE\KeyCodes.h" />
     <ClInclude Include="src\VCE\Layer.h" />
     <ClInclude Include="src\VCE\LayerStack.h" />
     <ClInclude Include="src\VCE\Log.h" />
+    <ClInclude Include="src\VCE\MouseButtonCodes.h" />
     <ClInclude Include="src\VCE\Window.h" />
     <ClInclude Include="src\vcepch.h" />
   </ItemGroup>

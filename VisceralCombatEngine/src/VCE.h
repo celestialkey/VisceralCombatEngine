@@ -8,6 +8,9 @@
 
 #include "VCE/ImGui/ImGuiLayer.h"
 
+#include "VCE/Input.h"
+#include "VCE/KeyCodes.h"
+#include "VCE/MouseButtonCodes.h"
 
 // EntryPoint -------------------------------
 #include "VCE/EntryPoint.h"
