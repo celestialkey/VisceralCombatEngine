@@ -10,7 +10,6 @@ public:
 
 	}
 	void OnUpdate() override {
-		VCE_INFO("ExampleLayer::Update");
 	}
 	void OnAttach(){
 	}

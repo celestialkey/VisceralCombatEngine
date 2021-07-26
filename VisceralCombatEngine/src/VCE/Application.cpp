@@ -5,6 +5,7 @@
 
 
 #include <glad/glad.h>
+#include "VCE/Input.h"
 
 namespace VCE {
 	Application* Application::s_Instance = nullptr;
@@ -53,6 +54,9 @@ namespace VCE {
 
 			for (Layer* pLayer : m_LayerStack)
 				pLayer->OnUpdate();
+
+			auto [x, y] = Input::GetMousePosition();
+			VCE_CORE_WARN("MousePosition ({0},{1})", x, y);
 
 			m_Window->OnUpdate();
 		}
