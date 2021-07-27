@@ -28,7 +28,6 @@ class TestBed : public VCE::Application
 public:
 	TestBed() {
 		PushLayer(new ExampleLayer());
-		PushLayer(new VCE::ImGuiLayer());
 	}
 	~TestBed() {
 

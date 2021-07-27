@@ -7,6 +7,7 @@
 #include "Events/Event.h"
 #include "VCE/Events/ApplicationEvent.h"
 
+#include "VCE/ImGui/ImGuiLayer.h"
 
 namespace VCE {
 	class VCE_API Application
@@ -30,8 +31,10 @@ namespace VCE {
 
 	private:
 		std::shared_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running;
 		LayerStack m_LayerStack;
+
 
 	private:
 		static Application* s_Instance;

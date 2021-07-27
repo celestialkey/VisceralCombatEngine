@@ -17,6 +17,8 @@ namespace VCE {
 		VCE_CORE_ASSERT(!s_Instance, "Unable to create more than one application instance!")
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_ImGuiLayer =new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
 	Application::~Application() {
@@ -55,8 +57,11 @@ namespace VCE {
 			for (Layer* pLayer : m_LayerStack)
 				pLayer->OnUpdate();
 
-			auto [x, y] = Input::GetMousePosition();
-			VCE_CORE_WARN("MousePosition ({0},{1})", x, y);
+
+			m_ImGuiLayer->Begin();
+			for (Layer* pLayer : m_LayerStack)
+					pLayer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
