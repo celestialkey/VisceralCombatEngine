@@ -15,10 +15,12 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "%{prj.name}/vendor/GLFW/include"
 IncludeDir["GLad"] = "%{prj.name}/vendor/GLad/include"
 IncludeDir["ImGui"] = "%{prj.name}/vendor/ImGui"
+IncludeDir["glm"] = "%{prj.name}/vendor/glm"
 
 include "VisceralCombatEngine/vendor/GLFW"
 include "VisceralCombatEngine/vendor/GLad"
 include "VisceralCombatEngine/vendor/imgui"
+--include "VisceralCombatEngine/vendor/glm"
 
 project "VisceralCombatEngine"
 	location "VisceralCombatEngine"
@@ -34,7 +36,9 @@ project "VisceralCombatEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -43,7 +47,8 @@ project "VisceralCombatEngine"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -107,7 +112,8 @@ project "Playground"
 	includedirs
 	{
 		"VisceralCombatEngine/vendor/spdlog/include",
-		"VisceralCombatEngine/src"
+		"VisceralCombatEngine/vendor/glm",
+		"VisceralCombatEngine/src",
 	}
 
 	links

@@ -7,3 +7,6 @@
 [submodule "VisceralCombatEngine\\vendor\\imgui"]
 	path = VisceralCombatEngine\\vendor\\imgui
 	url = https://github.com/ocornut/imgui.git
+[submodule "VisceralCombatEngine/vendor/glm"]
+	path = VisceralCombatEngine/vendor/glm
+	url = https://github.com/g-truc/glm

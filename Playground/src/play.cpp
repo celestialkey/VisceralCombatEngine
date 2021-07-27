@@ -1,6 +1,8 @@
 
 #include <VCE.h>
 
+#include <glm/vec3.hpp>
+
 class ExampleLayer : public VCE::Layer
 {
 public:
