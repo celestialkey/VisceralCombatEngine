@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef VCE_PLATFORM_WINDOWS
-#	ifdef VCE_BUILD_DLL
-#		define VCE_API __declspec(dllexport)
+#	if VCE_DYNAMIC_LINK // Don't do this...
+#		ifdef VCE_BUILD_DLL
+#			define VCE_API __declspec(dllexport)
+#		else
+#			define VCE_API __declspec(dllimport)
+#		endif
 #	else
-#		define VCE_API __declspec(dllimport)
+#		define VCE_API
 #	endif
 #else
 #	error VCE only supports Windows!
