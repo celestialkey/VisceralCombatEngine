@@ -38,6 +38,11 @@ namespace VCE {
 
 	private:
 		static Application* s_Instance;
+
+	private:
+		unsigned int m_VertexArray;
+		unsigned int m_VertexBuffer;
+		unsigned int m_IndexBuffer;
 	};
 
 	// To be defined in client
