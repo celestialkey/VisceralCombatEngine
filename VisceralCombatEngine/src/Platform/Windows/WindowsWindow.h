@@ -1,6 +1,9 @@
 #pragma once
 
 #include "VCE/Window.h"
+#include "VCE/Renderer/RenderContext.h"
+
+#include <GLFW/glfw3.h>
 
 struct GLFWwindow;
 
@@ -27,6 +30,7 @@ namespace VCE {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		RenderContext* m_Context;
 
 		struct WindowData {
 			std::string Title;
