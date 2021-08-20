@@ -1349,6 +1349,15 @@
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\VCE\Renderer\RenderContext.h" />
+    <ClInclude Include="src\VCE\Renderer\Shader.h" />
+    <ClInclude Include="src\VCE\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\VCE\Renderer\RenderBuffers.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\VCE\Renderer\VertexArray.h" />
+    <ClInclude Include="src\VCE\Renderer\Renderer.h" />
+    <ClInclude Include="src\VCE\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -1380,5 +1389,14 @@
     </ClCompile>
     <ClCompile Include="src\VCE\Renderer\RenderContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\VCE\Renderer\Shader.cpp" />
+    <ClCompile Include="src\VCE\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\VCE\Renderer\RenderBuffers.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\VCE\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\VCE\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\VCE\Renderer\RenderCommand.cpp" />
   </ItemGroup>
 </Project>

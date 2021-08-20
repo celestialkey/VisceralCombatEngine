@@ -8,6 +8,9 @@
 #include "VCE/Events/ApplicationEvent.h"
 
 #include "VCE/ImGui/ImGuiLayer.h"
+#include "VCE/Renderer/Shader.h"
+#include "VCE/Renderer/RenderBuffers.h"
+#include "VCE/Renderer/VertexArray.h"
 
 namespace VCE {
 	class VCE_API Application
@@ -40,9 +43,10 @@ namespace VCE {
 		static Application* s_Instance;
 
 	private:
-		unsigned int m_VertexArray;
-		unsigned int m_VertexBuffer;
-		unsigned int m_IndexBuffer;
+		std::shared_ptr<Shader>		m_Shader;
+		std::shared_ptr<VertexArray>m_VertexArray;
+		std::shared_ptr<Shader>		m_BlueShader;
+		std::shared_ptr<VertexArray>m_SquareVA;
 	};
 
 	// To be defined in client
