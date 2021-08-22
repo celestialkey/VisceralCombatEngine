@@ -3,14 +3,18 @@
 #include "Core.h"
 
 #include "Window.h"
+
 #include "LayerStack.h"
+
 #include "Events/Event.h"
 #include "VCE/Events/ApplicationEvent.h"
 
 #include "VCE/ImGui/ImGuiLayer.h"
+
 #include "VCE/Renderer/Shader.h"
 #include "VCE/Renderer/RenderBuffers.h"
 #include "VCE/Renderer/VertexArray.h"
+#include "VCE/Renderer/OrthographicCamera.h"
 
 namespace VCE {
 	class VCE_API Application
@@ -47,6 +51,8 @@ namespace VCE {
 		std::shared_ptr<VertexArray>m_VertexArray;
 		std::shared_ptr<Shader>		m_BlueShader;
 		std::shared_ptr<VertexArray>m_SquareVA;
+
+		OrthographicCamera			m_Camera;
 	};
 
 	// To be defined in client
