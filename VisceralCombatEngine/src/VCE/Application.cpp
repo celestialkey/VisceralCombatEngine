@@ -8,6 +8,8 @@
 #include "VCE/Input.h"
 #include "VCE/Renderer/Shader.h"
 
+#include <GLFW/glfw3.h>
+
 namespace VCE {
 	Application* Application::s_Instance = nullptr;
 
@@ -54,8 +56,12 @@ namespace VCE {
 	
 	void Application::Run() {
 		while (m_Running) {
+			float _time = (float)glfwGetTime();
+			Timestep timestep = _time - m_LastFrameTime;
+			m_LastFrameTime = _time;
+			 
 			for (Layer* pLayer : m_LayerStack)
-				pLayer->OnUpdate();
+				pLayer->OnUpdate(timestep);
 			
 			m_ImGuiLayer->Begin();
 				for (Layer* pLayer : m_LayerStack)

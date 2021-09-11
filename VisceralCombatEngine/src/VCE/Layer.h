@@ -1,6 +1,7 @@
 #pragma once
 #include "VCE/Core.h"
 #include "VCE/Events/Event.h"
+#include "VCE/Core/Timestep.h"
 
 namespace VCE {
 	class VCE_API Layer
@@ -11,7 +12,7 @@ namespace VCE {
 
 		virtual void OnAttach() {};
 		virtual void OnDetach() {};
-		virtual void OnUpdate() {};
+		virtual void OnUpdate(Timestep ts) {};
 		virtual void OnImGuiRender() {};
 		virtual void OnEvent(Event& e) {};
 		
