@@ -37,7 +37,7 @@ namespace VCE {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 	private:
-		std::shared_ptr<Window> m_Window;
+		Ref<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running;
 		LayerStack m_LayerStack;
